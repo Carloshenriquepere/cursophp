@@ -10,7 +10,7 @@
 
 
     if($valorSaque % $cedulas[0] > 0){
-        die('O valor solicitado não pode ser atendido pelas cédulas disponíveis');
+        die("O valor solicitado não pode ser atendido pelas cédulas disponíveis\n\n");
     }
 
     //AUXILIAR DO CÁLCULO DO VALOR RESTANTE 
