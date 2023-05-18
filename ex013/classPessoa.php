@@ -59,6 +59,40 @@
             }
         }
 
+        //EXCLUIR 
+        public function excluirPessoa($id){
+            global $pdo;
+            $sql = $pdo -> prepare("DELETE FROM PESSOA WHERE id = :id");
+            $sql -> bindValue(":id", $id);
+            $sql -> execute();
+
+
+        }
+
+        //BUSCAR DADOS DE UMA PESSOA
+        public function buscarDadosPessoa($id){
+            global $pdo;
+
+            $res = array();
+            $sql = $pdo -> prepare("SELECT * FROM PESSOA WHERE id = :id");
+            $sql -> bindValue(":id", $id);
+            $sql -> execute();
+            $res = $sql -> fetch(PDO::FETCH_ASSOC);
+            return $res;
+        }
+
+        //ATUALIZAR DADOS NO BANCO DE DADOS 
+        public function atualizarDados($id, $nome, $email, $telefone){
+            global $pdo;
+            
+            $sql = $pdo -> prepare("UPDATE PESSOA SET nome = :n, email = :e, telefone = :t WHERE id = :id");
+            $sql->bindValue(":n", $nome);
+            $sql->bindValue(":e", $email);
+            $sql->bindValue(":t", $telefone);
+            $sql->bindValue(":id", $id);
+            $sql-> execute();
+        }
+
 
     }
 

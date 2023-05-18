@@ -71,3 +71,10 @@ a{
     margin: 0px 5px;
     text-decoration: none;
 }
+div.aviso{
+    background-color: black;
+   
+}
+div>h4{
+    color: blue;
+}
